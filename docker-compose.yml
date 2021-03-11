@@ -32,15 +32,38 @@ services:
   #     - exposed
   #     - internal
 
-  # voyage:
-  #   networks:
-  #     - exposed
-  #     - internal
+  travel:
+    build:
+      context: ./travel
+      dockerfile: MicroService.Travel.WebApi/Dockerfile
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=6EQUJ5wow
+      - MONGO_INITDB_DATABASE=travel
+      - MONGO_INITDB_HOST=travel-bdd
+    depends_on:
+      - travel-bdd
+    networks:
+      - exposed
+      - internal
+      - travel-data
 
-  # image:
-  #   networks:
-  #     - exposed
-  #     - internal
+  image:
+    build:
+      context: ./image
+      dockerfile: MicroService.Image.WebApi/Dockerfile
+    environment:
+      - StorageType=AMAZON
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=6EQUJ5wow
+      - MONGO_INITDB_DATABASE=image
+      - MONGO_INITDB_HOST=image-bdd
+    depends_on:
+      - travel-bdd
+    networks:
+      - exposed
+      - internal
+      - image-data
 
   like:
     build:
@@ -66,6 +89,26 @@ services:
     networks:
       - like-data
 
+  travel-bdd:
+    image: mongo:latest
+    restart: always
+    environment:
+        MONGO_INITDB_ROOT_USERNAME: admin
+        MONGO_INITDB_ROOT_PASSWORD: 6EQUJ5wow
+        MONGO_INITDB_DATABASE: travel
+    networks:
+        - travel-data
+
+  image-bdd:
+    image: mongo:latest
+    restart: always
+    environment:
+        MONGO_INITDB_ROOT_USERNAME: admin
+        MONGO_INITDB_ROOT_PASSWORD: 6EQUJ5wow
+        MONGO_INITDB_DATABASE: image
+    networks:
+        - image-data
+
 #################
 #    NETWORK    #
 #################
@@ -85,6 +128,6 @@ networks:
   like-data:
     name: like-data
     driver: bridge
-  voyage-data:
-    name: voyage-data
+  travel-data:
+    name: travel-data
     driver: bridge
