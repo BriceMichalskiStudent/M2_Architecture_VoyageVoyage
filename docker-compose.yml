@@ -1,0 +1,87 @@
+version: '3.4'
+
+services:
+
+##########################
+#  APPLICATION GATEWAY   #
+##########################
+  gateway:
+    image: traefik:latest
+    container_name: api-gateway
+    restart: always
+    command: --api.insecure=true
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "./docker/gateway/traefik.yml:/etc/traefik/traefik.yml"
+      - "./docker/gateway/dynamic/:/etc/traefik/traefik.d/"
+    networks:
+      - exposed
+
+##########################
+#    BUSINESS SERVICE    #
+##########################
+  front:
+    networks:
+      - exposed
+      - internal
+
+  user:
+    networks:
+      - exposed
+      - internal
+
+  voyage:
+    networks:
+      - exposed
+      - internal
+
+  image:
+    networks:
+      - exposed
+      - internal
+
+  like:
+    build:
+      context: ./like
+      dockerfile: ./docker/like/Dockerfile
+    environment:
+      - "BACK_URL:${backurl}"
+    networks:
+      - internal
+      - like-data
+
+#################
+#    DATABASE   #
+#################
+
+  like-bdd:
+    image: redis:6.0-alpine
+    container_name: redis
+    networks:
+      - like-data
+
+
+#################
+#    NETWORK    #
+#################
+networks:
+  exposed:
+    name: exposed
+    driver: bridge
+  internal:
+    name: internal
+    driver: bridge
+  user-data:
+    name: user-data
+    driver: bridge
+  image-data:
+    name: image-data
+    driver: bridge
+  like-data:
+    name: like-data
+    driver: bridge
+  voyage-data:
+    name: voyage-data
+    driver: bridge
