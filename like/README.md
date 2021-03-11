@@ -72,6 +72,8 @@ response:
 }
 ```
 
+---
+
 ## [GET] /like/user/<user_key>
 
 **exemple**
