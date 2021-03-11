@@ -39,7 +39,7 @@ namespace MicroService.Image.Service.Service
 
             AWSCredentials awsCredentials = new BasicAWSCredentials(key, secret);
             _amazonS3Client = new AmazonS3Client(awsCredentials, RegionEndpoint.EUWest3);
-            _bucketName = "mycalendapp-assets";
+            _bucketName = Environment.GetEnvironmentVariable("AMAZON_BUCKET");
         }
 
         /// <summary>
