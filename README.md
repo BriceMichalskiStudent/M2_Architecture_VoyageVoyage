@@ -2,3 +2,5 @@
 
 # VoyageVoyage Project
 
+## Architecture
+![Architecture image](./architecture.png)
