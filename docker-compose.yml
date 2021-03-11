@@ -22,32 +22,34 @@ services:
 ##########################
 #    BUSINESS SERVICE    #
 ##########################
-  front:
-    networks:
-      - exposed
-      - internal
+  # front:
+  #   networks:
+  #     - exposed
+  #     - internal
 
-  user:
-    networks:
-      - exposed
-      - internal
+  # user:
+  #   networks:
+  #     - exposed
+  #     - internal
 
-  voyage:
-    networks:
-      - exposed
-      - internal
+  # voyage:
+  #   networks:
+  #     - exposed
+  #     - internal
 
-  image:
-    networks:
-      - exposed
-      - internal
+  # image:
+  #   networks:
+  #     - exposed
+  #     - internal
 
   like:
     build:
       context: ./like
-      dockerfile: ./docker/like/Dockerfile
-    environment:
-      - "BACK_URL:${backurl}"
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - like-bdd
     networks:
       - internal
       - like-data
@@ -59,9 +61,10 @@ services:
   like-bdd:
     image: redis:6.0-alpine
     container_name: redis
+    ports:
+      - 6379:6379
     networks:
       - like-data
-
 
 #################
 #    NETWORK    #
