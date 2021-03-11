@@ -1,0 +1,136 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?f9lns6');
+  src:  url('fonts/icomoon.eot?f9lns6#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?f9lns6') format('truetype'),
+    url('fonts/icomoon.woff?f9lns6') format('woff'),
+    url('fonts/icomoon.svg?f9lns6#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-info:before {
+  content: "\e900";
+  color: #fff;
+}
+.icon-success:before {
+  content: "\e901";
+  color: #fff;
+}
+.icon-error:before {
+  content: "\e902";
+  color: #fff;
+}
+.icon-swagger:before {
+  content: "\e903";
+  color: #85ea2d;
+}
+.icon-location_on:before {
+  content: "\e904";
+}
+.icon-clear:before {
+  content: "\e905";
+}
+.icon-insert_drive_file:before {
+  content: "\e906";
+}
+.icon-table_chart:before {
+  content: "\e907";
+}
+.icon-info_outline:before {
+  content: "\e908";
+}
+.icon-search:before {
+  content: "\e909";
+}
+.icon-line_style:before {
+  content: "\e90a";
+}
+.icon-emoji_symbols:before {
+  content: "\e90b";
+}
+.icon-activity:before {
+  content: "\e90c";
+}
+.icon-arrow-down:before {
+  content: "\e90d";
+}
+.icon-arrow-down-left:before {
+  content: "\e90e";
+}
+.icon-arrow-down-right:before {
+  content: "\e90f";
+}
+.icon-arrow-left:before {
+  content: "\e910";
+}
+.icon-arrow-right:before {
+  content: "\e911";
+}
+.icon-arrow-up:before {
+  content: "\e912";
+}
+.icon-arrow-up-left:before {
+  content: "\e913";
+}
+.icon-arrow-up-right:before {
+  content: "\e914";
+}
+.icon-calendar:before {
+  content: "\e915";
+}
+.icon-git-merge:before {
+  content: "\e916";
+}
+.icon-github:before {
+  content: "\e917";
+}
+.icon-log-out:before {
+  content: "\e918";
+}
+.icon-map-pin:before {
+  content: "\e919";
+}
+.icon-share:before {
+  content: "\e91a";
+}
+.icon-sliders:before {
+  content: "\e91b";
+}
+.icon-tag:before {
+  content: "\e91c";
+}
+.icon-user-group:before {
+  content: "\e91d";
+}
+.icon-user:before {
+  content: "\e91e";
+}
+.icon-home3:before {
+  content: "\e91f";
+}
+.icon-user1:before {
+  content: "\e971";
+}
+.icon-menu:before {
+  content: "\e9bd";
+}
+.icon-terminal:before {
+  content: "\ea81";
+}

@@ -1,0 +1,42 @@
+.v-application .form-layout .v-input__slot::before, .v-application .form-layout .v-text-field__details {
+  display: none;
+}
+.v-application .form-layout .v-input {
+  padding: 0;
+  width: calc(50% - 13px);
+  margin: 10px 5px;
+  display: inline-flex;
+}
+.v-application .form-layout .v-input input {
+  max-height: unset;
+}
+.v-application .form-layout .v-input.v-select {
+  width: calc(100% - 13px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 0;
+  padding: 0;
+}
+.v-application .form-layout .v-input.v-select input {
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.container.container--fluid.default-layout {
+  padding: 100px 0 0;
+  min-height: calc(100vh - 100px);
+  overflow: hidden;
+}
+.container.container--fluid.admin-layout {
+  background-color: #f8f9fe;
+  margin: 80px 0 0 60px;
+  width: calc(100% - 60px);
+  min-height: 100vh;
+}
+.container.container--fluid .v-sheet.v-card:not(.v-sheet--outlined) {
+  box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+  border-radius: 0.375rem;
+}
+
+/*# sourceMappingURL=vutify-override.css.map */
