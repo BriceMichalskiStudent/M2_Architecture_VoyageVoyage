@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroService.Image.WebApi", "MicroService.Image.WebApi\MicroService.Image.WebApi.csproj", "{813757AC-61FD-4AD3-86AB-82995F9BB33F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroService.Image.WebApi", "MicroService.Image.WebApi\MicroService.Image.WebApi.csproj", "{813757AC-61FD-4AD3-86AB-82995F9BB33F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroService.Image.Service", "MicroService.Image.Service\MicroService.Image.Service.csproj", "{083B4661-5990-4040-8BD4-C4CCBEAB5358}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{813757AC-61FD-4AD3-86AB-82995F9BB33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{813757AC-61FD-4AD3-86AB-82995F9BB33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{813757AC-61FD-4AD3-86AB-82995F9BB33F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{083B4661-5990-4040-8BD4-C4CCBEAB5358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{083B4661-5990-4040-8BD4-C4CCBEAB5358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{083B4661-5990-4040-8BD4-C4CCBEAB5358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{083B4661-5990-4040-8BD4-C4CCBEAB5358}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
