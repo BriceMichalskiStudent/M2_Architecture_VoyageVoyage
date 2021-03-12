@@ -1,0 +1,153 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Bold";
+  src: url("fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Italic";
+  src: url("fonts/Montserrat/Montserrat-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat Bold Italic";
+  src: url("fonts/Montserrat/Montserrat-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Times New Roman";
+  src: url("fonts/TimesNewRoman/TimesNewRoman-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Times New Roman Bold";
+  src: url("fonts/TimesNewRoman/TimesNewRoman-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Times New Roman Italic";
+  src: url("fonts/TimesNewRoman/TimesNewRoman-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Times New Roman Bold Italic";
+  src: url("fonts/TimesNewRoman/TimesNewRoman-BoldItalic.ttf") format("truetype");
+}
+.v-application h1 {
+  font-family: "Times New Roman Bold", serif;
+  font-size: 50px;
+  line-height: 60px;
+}
+@media only screen and (max-width: 960px) {
+  .v-application h1 {
+    font-size: 35px;
+    line-height: 40px;
+  }
+}
+.v-application h2 {
+  font-family: "Times New Roman Bold", sans-serif;
+  font-size: 30px;
+  line-height: 40px;
+}
+.v-application h3 {
+  font-family: "Times New Roman Bold", sans-serif;
+  font-size: 25px;
+  line-height: 35px;
+}
+.v-application h4, .v-application h5, .v-application h6 {
+  font-family: "Times New Roman Bold", sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+}
+.v-application p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: black;
+}
+@media only screen and (max-width: 960px) {
+  .v-application p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+.v-application p.small {
+  font-family: "Montserrat Italic", sans-serif;
+  font-size: 12px;
+  line-height: 22px;
+}
+@media only screen and (max-width: 960px) {
+  .v-application p.small {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+.v-application p.big {
+  font-family: "Montserrat Bold", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+}
+@media only screen and (max-width: 960px) {
+  .v-application p.big {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+.v-application p.admin-big {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+}
+.v-application a, .v-application button {
+  text-decoration: none;
+  font-family: "Montserrat Bold", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: #ff645f;
+}
+@media only screen and (max-width: 960px) {
+  .v-application a, .v-application button {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+.v-application hr {
+  border: none;
+  height: 2px;
+  margin: 10px 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.v-application form label {
+  display: none;
+}
+.v-application form input {
+  width: 100%;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.opacity-enter-active {
+  animation: opacity-in 0.6s;
+}
+
+.opacity-leave-active {
+  animation: opacity-out 0.3s;
+}
+
+@keyframes opacity-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes opacity-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=general.css.map */
