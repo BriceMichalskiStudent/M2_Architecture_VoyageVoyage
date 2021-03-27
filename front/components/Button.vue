@@ -35,7 +35,7 @@ export default {
   padding: 10px 30px;
   background-color: $secondary!important;
   color: white;
-  border-radius: 10px;
+  border-radius: 2px;
   position: relative;
   text-align: center;
   &::after{
@@ -48,7 +48,7 @@ export default {
     background-color: $secondary!important;;
     opacity: 0.35;
     z-index: -1;
-    border-radius: 10px;
+    border-radius: 2px;
     transform: rotate(0);
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;

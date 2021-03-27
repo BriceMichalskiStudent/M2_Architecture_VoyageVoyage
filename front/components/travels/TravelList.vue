@@ -1,27 +1,17 @@
 <template>
-  <div class="carousel-container">
-    <div class="carousel-wrapper">
-      <VueSlickCarousel v-bind="slickOptions">
-        <template #prevArrow class="slick-arrow arrow-prev">
-          <span class="icon-arrow-left" />
-        </template>
-        <div v-for="event in events" :key="event._id" class="img-wrapper">
-          <EventCard :event="event" />
-        </div>
-        <template #nextArrow class="slick-arrow arrow-next">
-          <span class="icon-arrow-right" />
-        </template>
-      </VueSlickCarousel>
+  <section>
+    <div v-for="event in travels" :key="event._id" class="img-wrapper">
+      <TravelCard :event="event" />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
-import EventCard from '~/components/events/Card'
+import TravelCard from '~/components/travels/TravelCard'
 export default {
-  components: { EventCard },
+  components: { TravelCard },
   props: {
-    events: {
+    travels: {
       type: Array,
       default () {
         return [

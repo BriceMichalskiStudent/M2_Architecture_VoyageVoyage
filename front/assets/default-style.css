@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Montserrat";
   src: url("fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
@@ -30,6 +31,196 @@
   font-family: "Times New Roman Bold Italic";
   src: url("fonts/TimesNewRoman/TimesNewRoman-BoldItalic.ttf") format("truetype");
 }
+.opacity-enter-active {
+  animation: opacity-in 0.6s;
+}
+
+.opacity-leave-active {
+  animation: opacity-out 0.3s;
+}
+
+@keyframes opacity-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes opacity-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@font-face {
+  font-family: "icomoon";
+  src: url("icons/fonts/icomoon.eot?f9lns6");
+  src: url("icons/fonts/icomoon.eot?f9lns6#iefix") format("embedded-opentype"), url("icons/fonts/icomoon.ttf?f9lns6") format("truetype"), url("icons/fonts/icomoon.woff?f9lns6") format("woff"), url("icons/fonts/icomoon.svg?f9lns6#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^=icon-], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-info:before {
+  content: "";
+  color: #fff;
+}
+
+.icon-success:before {
+  content: "";
+  color: #fff;
+}
+
+.icon-error:before {
+  content: "";
+  color: #fff;
+}
+
+.icon-swagger:before {
+  content: "";
+  color: #85ea2d;
+}
+
+.icon-location_on:before {
+  content: "";
+}
+
+.icon-clear:before {
+  content: "";
+}
+
+.icon-insert_drive_file:before {
+  content: "";
+}
+
+.icon-table_chart:before {
+  content: "";
+}
+
+.icon-info_outline:before {
+  content: "";
+}
+
+.icon-search:before {
+  content: "";
+}
+
+.icon-line_style:before {
+  content: "";
+}
+
+.icon-emoji_symbols:before {
+  content: "";
+}
+
+.icon-activity:before {
+  content: "";
+}
+
+.icon-arrow-down:before {
+  content: "";
+}
+
+.icon-arrow-down-left:before {
+  content: "";
+}
+
+.icon-arrow-down-right:before {
+  content: "";
+}
+
+.icon-arrow-left:before {
+  content: "";
+}
+
+.icon-arrow-right:before {
+  content: "";
+}
+
+.icon-arrow-up:before {
+  content: "";
+}
+
+.icon-arrow-up-left:before {
+  content: "";
+}
+
+.icon-arrow-up-right:before {
+  content: "";
+}
+
+.icon-calendar:before {
+  content: "";
+}
+
+.icon-git-merge:before {
+  content: "";
+}
+
+.icon-github:before {
+  content: "";
+}
+
+.icon-log-out:before {
+  content: "";
+}
+
+.icon-map-pin:before {
+  content: "";
+}
+
+.icon-share:before {
+  content: "";
+}
+
+.icon-sliders:before {
+  content: "";
+}
+
+.icon-tag:before {
+  content: "";
+}
+
+.icon-user-group:before {
+  content: "";
+}
+
+.icon-user:before {
+  content: "";
+}
+
+.icon-home3:before {
+  content: "";
+}
+
+.icon-user1:before {
+  content: "";
+}
+
+.icon-menu:before {
+  content: "";
+}
+
+.icon-terminal:before {
+  content: "";
+}
+
 .v-application h1 {
   font-family: "Times New Roman Bold", serif;
   font-size: 50px;
@@ -100,7 +291,7 @@
   font-family: "Montserrat Bold", sans-serif;
   font-size: 16px;
   line-height: 26px;
-  color: #ff645f;
+  color: #6ECDD9;
 }
 @media only screen and (max-width: 960px) {
   .v-application a, .v-application button {
@@ -125,29 +316,4 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.opacity-enter-active {
-  animation: opacity-in 0.6s;
-}
-
-.opacity-leave-active {
-  animation: opacity-out 0.3s;
-}
-
-@keyframes opacity-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes opacity-out {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-/*# sourceMappingURL=general.css.map */
+/*# sourceMappingURL=default-style.css.map */

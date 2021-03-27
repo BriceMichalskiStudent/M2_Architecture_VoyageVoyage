@@ -1,29 +1,26 @@
 <template>
-  <nuxt-link :to="{ path: '/event/' + event._id }" class="event-card">
-    <p v-if="event.tags !== 'undefined' && event.tags.length !== 0 " class="event-tag">
-      {{ event.tags[0].name }}
-    </p>
+  <nuxt-link :to="{ path: '/travels/' + travel._id }" class="travel-card">
     <span class="icon-arrow-right" />
-    <img v-if="event.imgUrl === '' || event.imgUrl === undefined " class="event-image" src="/static/img/placeholder-animation-banner.jpg">
-    <img v-else class="event-image" :src="event.imgUrl">
-    <section class="event-info">
-      <p class="event-date">
-        {{ $moment(event.dateStart).format("MMM DD") }}
+    <img v-if="travel.imgUrl === '' || travel.imgUrl === undefined " class="travel-image" src="/static/img/placeholder-animation-banner.jpg">
+    <img v-else class="travel-image" :src="travel.imgUrl">
+    <section class="travel-info">
+      <p class="travel-date">
+        {{ $moment(travel.dateStart).format("MMM DD") }}
       </p>
-      <div class="event-summary">
-        <h3> {{ event.title }}</h3>
-        <p> {{ event.description }}</p>
+      <div class="travel-summary">
+        <h3> {{ travel.title }}</h3>
+        <p> {{ travel.description }}</p>
       </div>
     </section>
-    <p class="event-position">
-      {{ event.city }} <span class="icon-location_on" />
+    <p class="travel-position">
+      {{ travel.city }} <span class="icon-location_on" />
     </p>
   </nuxt-link>
 </template>
 <script>
 export default {
   props: {
-    event: {
+    travel: {
       type: Object,
       default () {
         return {
@@ -60,7 +57,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.event-card{
+.travel-card{
   width: 350px;
   height: 400px;
   border-radius: 10px;
@@ -109,7 +106,7 @@ export default {
     -moz-box-shadow: 0 0 0 -1px $secondary;
     box-shadow: 0 0 0 -1px $secondary;
   }
-  p.event-tag{
+  p.travel-tag{
     position: absolute;
     display: inline-block;
     text-align: center;
@@ -129,14 +126,14 @@ export default {
       border-radius: unset;
     }
   }
-  .event-info {
+  .travel-info {
     height: 130px;
     display: flex;
     @media only screen and (max-width: map-get($grid-breakpoints, 'md')) {
       height: auto;
       padding: 10px 0;
     }
-    .event-date {
+    .travel-date {
       box-sizing: border-box;
       margin: 0;
       width: 30%;
@@ -154,7 +151,7 @@ export default {
       }
     }
 
-    .event-summary {
+    .travel-summary {
       box-sizing: border-box;
       width: 70%;
       text-align: left;
@@ -206,7 +203,7 @@ export default {
       }
     }
   }
-  p.event-position{
+  p.travel-position{
     width: 100%;
     padding: 0 10px;
     text-align: right;
@@ -232,7 +229,7 @@ export default {
       }
     }
   }
-  .event-image{
+  .travel-image{
     width: 100%;
     margin: 0;
     height: 230px;

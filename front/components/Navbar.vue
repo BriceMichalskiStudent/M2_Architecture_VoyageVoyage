@@ -22,7 +22,7 @@
       </li>
       <li @click="triggerMenu">
         <nuxt-link to="/overview">
-          Évènements
+          Fil d'actualité
         </nuxt-link>
       </li>
       <li v-if="isAuthenticated && isAdmin" @click="triggerMenu">
@@ -44,7 +44,7 @@
         </nuxt-link>
       </li>
       <li @click="triggerMenu">
-        <Button link="/create-event" anchor="Cree mon évènement" custom="primary" />
+        <Button link="/create-event" anchor="Partager un voyage" custom="secondary" />
       </li>
     </ul>
   </nav>
@@ -52,11 +52,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Button from '@/components/Button'
-import ProfileSystem from '@/components/ProfileSystem'
 
 export default {
-  components: { Button, ProfileSystem },
   data () {
     return {
       isActive: false,

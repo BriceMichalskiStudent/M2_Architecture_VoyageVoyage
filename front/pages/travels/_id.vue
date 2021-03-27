@@ -1,19 +1,17 @@
 <template>
-  <p v-if="$fetchState.pending">
-    Récupération en cours...️
-  </p>
-  <p v-else-if="$fetchState.error">
-    Une erreur est survenue :(
-  </p>
-  <section v-else class="col-md-10 offset-md-1 row">
-    <div class="col-md-6 single-event-content">
-      <h1>{{ event.title }}</h1>
-      <EventInfoBar v-if="event.tags !== 'undefined' && event.tags.length !== 0" :tag="event.tags[0].name" :place="event.address" :date="$moment(event.dateStart).format(&quot;DD / MM / YYYY&quot;)" />
-      <EventInfoBar v-else :place="event.address" :date="$moment(event.dateStart).format(&quot;DD / MM / YYYY&quot;)" />
-      <img v-if="event.imgUrl === '' || event.imgUrl === undefined " class="event-image" src="/img/placeholder-animation-banner.jpg">
-      <img v-else :src="event.imgUrl">
+  <!--  <p v-if="$fetchState.pending">-->
+  <!--    Récupération en cours...️-->
+  <!--  </p>-->
+  <!--  <p v-else-if="$fetchState.error">-->
+  <!--    Une erreur est survenue :(-->
+  <!--  </p>-->
+  <section class="col-md-10 offset-md-1 row">
+    <div class="col-md-6 single-travel-content">
+      <h1>{{ travel.title }}</h1>
+      <img v-if="travel.imgUrl === '' || travel.imgUrl === undefined " class="travel-image" src="/img/placeholder-animation-banner.jpg">
+      <img v-else :src="travel.imgUrl">
       <p>
-        {{ event.description }}
+        {{ travel.description }}
       </p>
       <button v-if="loggedInUser !== null && alreadySubscribe === false && owner === false" class="primary button large" @click="subscribe">
         S'inscrire !
@@ -22,8 +20,8 @@
         Se désinscrire !
       </button>
     </div>
-    <div class="col-md-5 event-map">
-      <Maps :location="event.location" />
+    <div class="col-md-5 travel-map">
+      <Maps :location="travel.location" />
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" class="red-bg" width="403.125" height="919.935" viewBox="0 0 403.125 919.935">
       <g id="graph" transform="translate(184.861 -229.685)">
@@ -46,51 +44,55 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import EventInfoBar from '~/components/events/InfoBar'
 import Maps from '~/components/Maps'
-export default {
-  components: { EventInfoBar, Maps },
-  transition: 'opacity',
-  async fetch () {
-    const eventId = this.$route.params.id
-    let currentEvent = {}
-    await this.$axios
-      .get('/event/' + eventId)
-      .then((response) => {
-        this.event = response.data
-        currentEvent = response.data
-      })
+import oneTravel from '~/assets/dataSchema/oneTravel.json'
 
-    if (this.loggedInUser !== null) {
-      for (let i = 0; this.$auth.user.events.length > i; i++) {
-        if (this.$auth.user.events[i] === eventId) {
-          this.alreadySubscribe = true
-        }
-      }
-      if (this.$auth.user._id === currentEvent.creator._id) {
-        this.owner = true
-      }
-    }
-  },
+export default {
+  components: { Maps },
+  transition: 'opacity',
+  // async fetch () {
+  //   const travelId = this.$route.params.id
+  //   let currenttravel = {}
+  //   await this.$axios
+  //     .get('/travel/' + travelId)
+  //     .then((response) => {
+  //       this.travel = response.data
+  //       currenttravel = response.data
+  //     })
+  //
+  //   if (this.loggedInUser !== null) {
+  //     for (let i = 0; this.$auth.user.travels.length > i; i++) {
+  //       if (this.$auth.user.travels[i] === travelId) {
+  //         this.alreadySubscribe = true
+  //       }
+  //     }
+  //     if (this.$auth.user._id === currenttravel.creator._id) {
+  //       this.owner = true
+  //     }
+  //   }
+  // },
   data () {
     return {
       title: 'Page index',
       meta_desc: 'Je suis le magnifique content',
       alreadySubscribe: false,
       owner: false,
-      event: {}
+      travel: {}
     }
   },
   computed: {
     ...mapGetters(['loggedInUser'])
   },
+  created () {
+    this.travel = oneTravel
+  },
   methods: {
     async subscribe () {
-      await this.$axios.put('/event/' + this.event._id + '/join/' + this.$auth.user._id)
+      await this.$axios.put('/travel/' + this.travel._id + '/join/' + this.$auth.user._id)
         .then(
           this.$store.commit('sendNotification', {
             status: 'success',
-            message: 'Vous etes désormais inscrit a l\'evenement : ' + this.event.title
+            message: 'Vous etes désormais inscrit a l\'evenement : ' + this.travel.title
           }))
         .catch(error => (
           this.$store.commit('sendNotification', {
@@ -101,11 +103,11 @@ export default {
       this.alreadySubscribe = true
     },
     async unSubscribe () {
-      await this.$axios.put('/event/' + this.event._id + '/unjoin/' + this.$auth.user._id)
+      await this.$axios.put('/travel/' + this.travel._id + '/unjoin/' + this.$auth.user._id)
         .then(
           this.$store.commit('sendNotification', {
             status: 'success',
-            message: 'Vous n\'etes plus inscrit a l\'evenement : ' + this.event.title
+            message: 'Vous n\'etes plus inscrit a l\'evenement : ' + this.travel.title
           }))
         .catch(error => (
           this.$store.commit('sendNotification', {
@@ -132,7 +134,7 @@ export default {
     margin: 0;
   }
 }
-.single-event-content{
+.single-travel-content{
   z-index: 3;
   h1{
     padding: 30px 0;
@@ -149,7 +151,7 @@ export default {
     float: right;
   }
 }
-.event-map{
+.travel-map{
   z-index: 3;
   position: fixed;
   right: 40px;

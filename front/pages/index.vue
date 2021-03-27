@@ -45,7 +45,7 @@
 
 <script>
 import Button from '~/components/Button'
-import EventCarousel from '~/components/events/Carousel'
+import EventCarousel from '~/components/travels/TravelList'
 export default {
   components: { EventCarousel, Button },
   transition: 'opacity',

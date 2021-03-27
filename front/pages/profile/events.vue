@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import EventCard from '~/components/events/Card'
+import EventCard from '~/components/travels/TravelCard'
 
 export default {
   components: { EventCard },

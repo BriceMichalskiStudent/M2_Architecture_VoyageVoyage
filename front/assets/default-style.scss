@@ -1,4 +1,8 @@
-@import "loader/fonts-loading.scss";
+@import "fonts/fonts-loading";
+@import "variables";
+@import "helper";
+@import "icons/icons";
+
 .v-application{
   h1{
     font-family: 'Times New Roman Bold', serif;

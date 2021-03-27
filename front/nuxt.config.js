@@ -5,7 +5,7 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'MyCalendAPP',
+    title: 'Voyage Voyage',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -22,13 +22,11 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
-    'vue-slick-carousel/dist/vue-slick-carousel.css',
-    '@/assets/general.css',
-    '@/assets/icons/icons.css'
+    '@/assets/default-style.css'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [{ src: '@/plugins/vClickOutside', ssr: true }, { src: './plugins/vSlickCarousel.js' }],
+  plugins: [{ src: '@/plugins/vClickOutside', ssr: true }],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -64,8 +62,8 @@ export default {
       light: true,
       themes: {
         light: {
-          primary: '#f7c109',
-          secondary: '#ff645f'
+          primary: '#FDB01D',
+          secondary: '#6ECDD9'
         }
       }
     }
