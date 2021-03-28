@@ -1,0 +1,13 @@
+http:
+    routers:
+      router-front:
+        entryPoints:
+          - web
+        service: front
+        rule: Host(`travel.localhost`) && PathPrefix(`/api/travel`)
+
+    services:
+      front:
+        loadBalancer:
+          servers:
+            - url: "http://travel:80/"
