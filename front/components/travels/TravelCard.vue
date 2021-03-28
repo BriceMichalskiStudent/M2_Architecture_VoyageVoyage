@@ -1,14 +1,24 @@
 <template>
   <nuxt-link :to="{ path: '/travels/' + travel.id }">
     <section class="travelCard">
-      <div class="travelCard__header">
-        <img v-if="travel.author.image.url === '' || travel.author.image.url === undefined " class="travel-image" src="/img/placeholder-profile.png">
-        <img v-else :src="travel.author.image.url">
-        <div class="travelCard__headerInfo">
-          <a href="https://twitter.com/adhamdannaway">{{ travel.author.name }}</a>
-          <p>{{ travel.place.city }}, {{ travel.place.country }}</p>
-        </div>
+      <UserInfo :author="travel.author" :place="travel.place" />
+      <div class="travelCard__image">
+        <img v-if="travel.images[0] === '' || travel.images[0] === undefined " class="travel-image" src="/img/travel-placeholder.jpg">
+        <img v-else :src="travel.images[0].url">
       </div>
+      <div class="travelCard__content">
+        <a class="icon-heart" />
+        <a class="icon-message-square" />
+        <p class="marginReset">
+          <a href="#">{{ travel.nbLike }} J'aime</a>
+        </p>
+        <p>
+          {{ travel.description }}
+        </p>
+      </div>
+    </section>
+    <section class="travelCard">
+      <UserInfo :author="travel.author" :place="travel.place" />
       <div class="travelCard__image">
         <img v-if="travel.images[0] === '' || travel.images[0] === undefined " class="travel-image" src="/img/travel-placeholder.jpg">
         <img v-else :src="travel.images[0].url">
@@ -28,8 +38,10 @@
 </template>
 <script>
 import oneTravel from '~/assets/dataSchema/oneTravel.json'
+import UserInfo from '~/components/UserInfo'
 
 export default {
+  comments: { UserInfo },
   // props: {
   //   travel: {
   //     type: Object,
@@ -48,47 +60,35 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.travelCard{
-  width: 33%;
-  border: 1px solid #ccc;
+.travelCard {
+  display: inline-block;
+  margin: 10px;
+  width: calc(33% - 20px);
   background: #fff;
-  border-radius: 4px;
-  &__header{
-    padding: 15px;
-    display: flex;
-    align-items: center;
+  box-shadow: 0 0 15px 0 rgba(153, 183, 176, 0.25);
+  border-radius: 2px;
+  height: 400px;
+  &__image {
+    width: 100%;
+    height: 200px;
     img {
-      width: 40px;
-      height: 40px;
-      border-radius: 20px;
-      margin-right: 15px;
-    }
-    &Info {
-      p{
-        margin: 0;
-      }
-      a {
-        font-size: 12px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #000;
-      }
-    }
-  }
-  &__image{
-    img{
       width: 100%;
+      height: inherit;
+      object-fit: cover;
     }
   }
-  &__content{
+
+  &__content {
     padding: 5px 10px;
-    *[class^="icon-"]{
+
+    *[class^="icon-"] {
       font-size: 20px;
       line-height: 30px;
       margin: 10px 2px;
       font-weight: unset;
     }
-    a{
+
+    a {
       color: #000;
       text-decoration: none;
       font-weight: bold;

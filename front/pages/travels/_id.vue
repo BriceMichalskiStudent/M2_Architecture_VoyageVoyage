@@ -6,10 +6,13 @@
   <!--    Une erreur est survenue :(-->
   <!--  </p>-->
   <section class="col-md-10 offset-md-1 row">
-    <div class="col-md-6 single-travel-content">
+    <div class="col-md-4 travel-map">
+      <Maps :location="travel.location" />
+    </div>
+    <div class="offset-md-6 col-md-6 single-travel-content">
       <h1>{{ travel.title }}</h1>
-      <img v-if="travel.imgUrl === '' || travel.imgUrl === undefined " class="travel-image" src="/img/placeholder-animation-banner.jpg">
-      <img v-else :src="travel.imgUrl">
+      <UserInfo :author="travel.author" :place="travel.place" class="user-info" />
+      <ImageList :images="travel.images" />
       <p>
         {{ travel.description }}
       </p>
@@ -20,25 +23,6 @@
         Se désinscrire !
       </button>
     </div>
-    <div class="col-md-5 travel-map">
-      <Maps :location="travel.location" />
-    </div>
-    <svg xmlns="http://www.w3.org/2000/svg" class="red-bg" width="403.125" height="919.935" viewBox="0 0 403.125 919.935">
-      <g id="graph" transform="translate(184.861 -229.685)">
-        <path id="Tracé_6" data-name="Tracé 6" d="M15454.531-1865.795s113.014,22.237,129.818,250.821,109.182,246.768,107.959,367.752-169.816,304.948-237.777,225.6S15454.531-1865.795,15454.531-1865.795Z" transform="translate(-15544.437 2152)" fill="#ff645f" />
-      </g>
-    </svg>
-
-    <svg xmlns="http://www.w3.org/2000/svg" class="light-red-bg" width="403.125" height="867.379" viewBox="0 0 403.125 867.379">
-      <path
-        id="Tracé_7"
-        data-name="Tracé 7"
-        d="M15454.531-1865.795s214.662-49.009,140.008,184.681,75.651,334.135,97.77,433.892-102.6,322.63-263.153,162.942S15454.531-1865.795,15454.531-1865.795Z"
-        transform="matrix(0.996, -0.087, 0.087, 0.996, -15142.382, 3230.855)"
-        fill="#ff645f"
-        opacity="0.35"
-      />
-    </svg>
   </section>
 </template>
 
@@ -129,94 +113,35 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@media only screen and (max-width: map-get($grid-breakpoints, 'md')) {
-  .row {
-    margin: 0;
-  }
+.travel-map{
+  position: fixed;
 }
-.single-travel-content{
+.single-travel-content {
   z-index: 3;
-  h1{
-    padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  h1 {
+    text-align: center;
+    padding: 20px 0;
   }
-  img{
+  .user-info{
+    align-self: center;
+    width: 50%;
+  }
+  img {
     padding: 0;
     object-fit: cover;
     width: 100%;
     height: 300px;
     margin: 20px 0;
   }
-  button{
+
+  button {
     margin: 10px 0;
     float: right;
   }
-}
-.travel-map{
-  z-index: 3;
-  position: fixed;
-  right: 40px;
-  @media only screen and (max-width: map-get($grid-breakpoints, 'md')) {
-    position: unset;
-  }
-}
-.light-red-bg{
-  position: fixed;
-  top: 3vh;
-  left: -100px;
-  height: 110vh;
-  z-index: 1;
-  @media only screen and (max-width: map-get($grid-breakpoints, 'md')) {
-    height: 120vh;
-    top: 0;
-  }
-}
-.red-bg{
-  position: fixed;
-  top: 12vh;
-  left: -120px;
-  height: 90vh;
-  z-index: 2;
-  @media only screen and (max-width: map-get($grid-breakpoints, 'md')) {
-    height: 100vh;
-    top: 80px;
-  }
-}
-.button{
-  z-index: 2;
-  padding: 10px 30px;
-  background-color: $secondary!important;
-  color: white;
-  border-radius: 10px;
-  position: relative;
-  text-align: center;
-  &::after{
-    content: '';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top:0;
-    left: 0;
-    background-color: $secondary!important;;
-    opacity: 0.35;
-    z-index: -1;
-    border-radius: 10px;
-    transform: rotate(0);
-    transition-duration: 0.2s;
-    transition-timing-function: ease-in-out;
-  }
-  &:hover{
-    &::after{
-      transform: rotate(5deg);
-    }
-  }
-}
-.primary{
-  background-color: $primary!important;
-  &::after{
-    background-color: $primary!important;;
-  }
-}
-.large{
-  padding: 10px 10%;
 }
 </style>

@@ -2,6 +2,8 @@
   <section>
     <div v-for="travel in travels" :key="travel.id">
       <TravelCard :travel="travel" />
+      <TravelCard :travel="travel" />
+      <TravelCard :travel="travel" />
     </div>
   </section>
 </template>

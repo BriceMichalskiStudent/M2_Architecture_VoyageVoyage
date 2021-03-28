@@ -1,9 +1,12 @@
 <template>
   <div class="col-md-10 offset-md-1 container">
-    <section class="overview-head">
+    <section class="overview">
       <br>
-      <h1 class="col-md-6">
+      <Bird class="svg-bird" />
+      <h1 class="overview__title">
         Fil d'actualité
+        <Triangle class="svg-triangle" />
+        <Sun class="svg-sun" />
       </h1>
     </section>
     <!--    <p v-if="$fetchState.pending">-->
@@ -12,7 +15,7 @@
     <!--    <p v-else-if="$fetchState.error">-->
     <!--      Une erreur est survenue :(-->
     <!--    </p>-->
-    <section class="overview-content col-md-10">
+    <section class="overview-content col-md-10 offset-md-1">
       <h2>Les derniers voyages !</h2>
       <travel-list :travels="travelAll" />
     </section>
@@ -21,9 +24,12 @@
 
 <script>
 import TravelList from '~/components/travels/TravelList'
+import Triangle from '~/components/svg/Triangle'
+import Sun from '~/components/svg/Sun'
+import Bird from '~/components/svg/Bird'
 
 export default {
-  components: { TravelList },
+  components: { TravelList, Sun, Triangle, Bird },
   transition: 'opacity',
   // async fetch () {
   //   await this.$axios.get('/event')
@@ -100,13 +106,36 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.overview-head{
+.overview{
   position: relative;
   z-index: 0;
-  h1{
-    font-size: 58px;
-    line-height: 68px;
+  .svg-bird{
+    z-index: -1;
+    position: absolute;
+    right: 50px;
+    top: 80px;
+    width: 70px;
+  }
+  &__title{
+    width: fit-content;
+    position: relative;
+    padding-bottom: 20px;
+    font-size: 70px;
+    line-height: 80px;
     z-index: 1;
+    .svg-triangle{
+      z-index: -1;
+      position: absolute;
+      left: -100px;
+      top: -10px;
+    }
+    .svg-sun{
+      position: absolute;
+      z-index: -1;
+      right: -50px;
+      bottom: -80px;
+      width: 150px;
+    }
     @media only screen and (max-width: map-get($grid-breakpoints, 'md')) {
       font-size: 45px;
       line-height: 55px;

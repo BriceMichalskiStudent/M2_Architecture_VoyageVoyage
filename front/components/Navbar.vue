@@ -44,7 +44,7 @@
         </nuxt-link>
       </li>
       <li @click="triggerMenu">
-        <Button link="/create-event" anchor="Partager un voyage" custom="secondary" />
+        <Button link="/create-travel" anchor="Partager un voyage" custom="secondary" />
       </li>
     </ul>
   </nav>
@@ -87,19 +87,17 @@ $navAnimationTiming: ease-out;
 }
 nav {
   height: 100px;
-  width: 90%;
+  width: 100%;
   position: fixed;
   transition-duration: $navAnimationDuration;
   transition-timing-function: $navAnimationTiming;
-  background-color: rgba(255,255,255,0.4);
+  background-color: white;
+  box-shadow: 0 3px 6px 0 rgba(153,183,176,0.25);
   z-index: 5;
-  right: 5%;
-  backdrop-filter: blur(10px);
-  border-radius: 0 0 10px 10px;
+  padding: 0 5%;
   @media only screen and (max-width: map-get($grid-breakpoints, 'md')) {
     &.active {
       height: 100vh;
-
       ul li, ul li.selected, ul p {
         color: black;
       }

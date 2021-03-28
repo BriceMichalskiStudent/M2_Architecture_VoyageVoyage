@@ -1,23 +1,16 @@
 <template>
-  <svg id="logo" xmlns="http://www.w3.org/2000/svg" :style="{ width: width, height: height }" viewBox="0 0 97 39">
-    <rect
-      id="Rectangle_5"
-      data-name="Rectangle 5"
-      width="9"
-      height="9"
-      rx="1"
-      transform="translate(0 7.273)"
-      fill="#f7c109"
-    />
-    <text
-      id="Calend_App"
-      data-name="Calend
-   App"
-      transform="translate(54 21)"
-      font-size="24"
-      font-family="TimesNewRomanPS-BoldMT, Times New Roman"
-      font-weight="700"
-    ><tspan x="-36.674" y="0">Calend</tspan><tspan x="-30.352" y="12" xml:space="preserve">   App</tspan></text>
+  <svg xmlns="http://www.w3.org/2000/svg" width="170" height="80" viewBox="0 0 200 100">
+    <g id="Groupe_1" data-name="Groupe 1" transform="translate(-82.805 -256.457)">
+      <text id="titre" transform="translate(82.805 300.457)" fill="#fdb01d" font-size="41" font-family="Quicksand, sans-serif"><tspan x="0" y="0">Voyage</tspan></text>
+      <text
+        id="titre-2"
+        data-name="titre"
+        transform="translate(138.805 335.457)"
+        fill="#6ecdd9"
+        font-size="41"
+        font-family="Quicksand, sans-serif"
+      ><tspan x="0" y="0">Voyage</tspan></text>
+    </g>
   </svg>
 </template>
 <style>
