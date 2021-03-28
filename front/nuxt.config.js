@@ -3,6 +3,10 @@ export default {
   target: 'server',
   ssr: true,
 
+  server: {
+    port: process.env.NUXT_PORT || 80 // par défaut: 3000
+  },
+
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Voyage Voyage',

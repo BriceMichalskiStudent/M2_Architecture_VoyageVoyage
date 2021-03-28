@@ -1,7 +1,7 @@
 <template>
   <section>
-    <div v-for="event in travels" :key="event._id" class="img-wrapper">
-      <TravelCard :event="event" />
+    <div v-for="travel in travels" :key="travel.id">
+      <TravelCard :travel="travel" />
     </div>
   </section>
 </template>
@@ -104,47 +104,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.carousel-container{
-  width: 100%;
-  padding: 10px 0 60px;
-  position: relative;
-  margin-bottom: 60px;
-}
-.carousel-wrapper {
-  width: 1200px;
-  @media only screen and (max-width: map-get($grid-breakpoints, 'md')) {
-    width: 600px;
-    padding: 0;
-  }
-  @media only screen and (max-width: map-get($grid-breakpoints, 'sm')) {
-    max-width: 300px;
-    padding: 0;
-  }
-  span.slick-arrow{
-    position: absolute;
-    color: black;
-    font-size: 35px;
-    line-height: 45px;
-    &.slick-prev{
-      bottom: 0;
-      left: 0;
-    }
-    &.slick-next{
-      bottom: 0;
-      right: 0;
-    }
-  }
-}
-.slick-slider{
-  position: unset!important;
-}
-.slick-list{
-  overflow: unset!important;
-}
-.img-wrapper img {
-  margin: auto;
-  background-image: linear-gradient(gray 100%, transparent 0);
-}
-</style>

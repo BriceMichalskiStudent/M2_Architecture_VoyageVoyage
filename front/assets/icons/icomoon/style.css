@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('icons/fonts/icomoon.eot?81zw6y');
-  src:  url('icons/fonts/icomoon.eot?81zw6y#iefix') format('embedded-opentype'),
-    url('icons/fonts/icomoon.ttf?81zw6y') format('truetype'),
-    url('icons/fonts/icomoon.woff?81zw6y') format('woff'),
-    url('icons/fonts/icomoon.svg?81zw6y#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?f9lns6');
+  src:  url('fonts/icomoon.eot?f9lns6#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?f9lns6') format('truetype'),
+    url('fonts/icomoon.woff?f9lns6') format('woff'),
+    url('fonts/icomoon.svg?f9lns6#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -108,19 +108,13 @@
   content: "\e919";
 }
 .icon-share:before {
-  content: "\e9f0";
+  content: "\e91a";
 }
 .icon-sliders:before {
   content: "\e91b";
 }
 .icon-tag:before {
   content: "\e91c";
-}
-.icon-heart:before {
-  content: "\e9a4";
-}
-.icon-message-square:before {
-  content: "\e9c0";
 }
 .icon-user-group:before {
   content: "\e91d";

@@ -57,8 +57,8 @@
 }
 @font-face {
   font-family: "icomoon";
-  src: url("icons/fonts/icomoon.eot?f9lns6");
-  src: url("icons/fonts/icomoon.eot?f9lns6#iefix") format("embedded-opentype"), url("icons/fonts/icomoon.ttf?f9lns6") format("truetype"), url("icons/fonts/icomoon.woff?f9lns6") format("woff"), url("icons/fonts/icomoon.svg?f9lns6#icomoon") format("svg");
+  src: url("icons/fonts/icomoon.eot?81zw6y");
+  src: url("icons/fonts/icomoon.eot?81zw6y#iefix") format("embedded-opentype"), url("icons/fonts/icomoon.ttf?81zw6y") format("truetype"), url("icons/fonts/icomoon.woff?81zw6y") format("woff"), url("icons/fonts/icomoon.svg?81zw6y#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -77,12 +77,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-info:before {
+.icon-success:before {
   content: "";
   color: #fff;
 }
 
-.icon-success:before {
+.icon-info:before {
   content: "";
   color: #fff;
 }
@@ -186,7 +186,7 @@
 }
 
 .icon-share:before {
-  content: "";
+  content: "";
 }
 
 .icon-sliders:before {
@@ -195,6 +195,14 @@
 
 .icon-tag:before {
   content: "";
+}
+
+.icon-heart:before {
+  content: "";
+}
+
+.icon-message-square:before {
+  content: "";
 }
 
 .icon-user-group:before {
