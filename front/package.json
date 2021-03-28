@@ -13,13 +13,14 @@
     "sass-watch": "sass --watch assets/default-style.scss:assets/default-style.css"
   },
   "dependencies": {
-    "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/firebase": "^7.5.0",
     "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/pwa": "^3.0.2",
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/vuetify": "^1.11.2",
     "core-js": "^3.6.5",
+    "firebase": "^8.3.1",
     "node-sass": "^4.14.1",
     "nuxt": "^2.14.6",
     "nuxt-gmaps": "^1.2.10",

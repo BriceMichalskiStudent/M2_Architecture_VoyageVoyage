@@ -3,18 +3,17 @@ export const state = () => ({
   notificationStatus: 'info',
   notificationMessage: 'Bye Bye !',
   notificationOutAnimation: false,
-  isAdmin: false
+  isAdmin: false,
+  user: null
 })
 
 export const getters = {
   isAuthenticated (state) {
-    return state.auth.loggedIn
+    return state.user
   },
-
   loggedInUser (state) {
-    return state.auth.user
+    return state.user
   },
-
   isAdmin (state) {
     return state.isAdmin
   }
@@ -38,5 +37,20 @@ export const mutations = {
   },
   setIsAdmin (state, boolean) {
     state.isAdmin = boolean
+  },
+  onAuthStateChangedMutation: (state, { authUser }) => {
+    console.log('here')
+    console.log(authUser)
+    const { uid, email, emailVerified } = authUser
+    state.user = { uid, email, emailVerified }
+  },
+  onAuthStateChangedAction: (ctx, { authUser, claims }) => {
+    console.log(authUser)
+    if (!authUser) {
+      // claims = null
+      // Perform logout operations
+    } else {
+      // Do something with the authUser and the claims object...
+    }
   }
 }

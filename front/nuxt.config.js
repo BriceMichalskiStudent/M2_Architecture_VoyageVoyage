@@ -1,7 +1,7 @@
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
-  target: 'server',
-  ssr: true,
+  target: 'static',
+  ssr: false,
 
   server: {
     port: process.env.NUXT_PORT || 80 // par défaut: 3000
@@ -50,12 +50,40 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
-    '@nuxtjs/auth',
-    ['nuxt-gmaps', {
-      key: process.env.API_KEY_Gmap
-  }]
+    [
+      'nuxt-gmaps', {
+        key: process.env.API_KEY_Gmap
+      }
+    ],
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyDLmj6r_9jQnnQ6u5TJFwBdWTf1gcN4OIk',
+          projectId: 'userwebapi-6e989',
+          authDomain: 'zalbani.dev',
+          storageBucket: '<storageBucket>',
+          messagingSenderId: '<messagingSenderId>',
+          appId: '1091974395328',
+          measurementId: '<measurementId>'
+        },
+        services: {
+          auth: true // Just as example. Can be any other service.
+        }
+      }
+    ]
   ],
-
+  auth: {
+    persistence: 'local',
+    initialize: {
+      onAuthStateChangedMutation: 'onAuthStateChangedMutation',
+      onAuthStateChangedAction: 'onAuthStateChangedAction',
+      subscribeManually: false
+    },
+    ssr: false, // default
+    emulatorPort: 9099,
+    emulatorHost: 'http://localhost'
+  },
   styleResources: {
     scss: [
       '@/assets/variables.scss'
@@ -75,21 +103,9 @@ export default {
   axios: {
     baseURL: process.env.backend_url || 'http://localhost:3001'
   },
-  auth: {
-    strategies: {
-      local: {
-        endpoints: {
-          login: { url: 'token', method: 'post', propertyName: 'token' },
-          user: { url: 'user/current', method: 'get', propertyName: '' },
-          logout: false
-        }
-      }
-    }
-  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-    transpile: ['@nuxtjs/auth'],
     extend (config, ctx) {
       // Exécuter ESLint lors de la sauvegarde
       if (ctx.isDev && ctx.isClient) {

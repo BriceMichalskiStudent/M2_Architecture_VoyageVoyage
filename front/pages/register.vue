@@ -5,36 +5,12 @@
     </h1>
     <div class="register-container">
       <form method="post" @submit.prevent="register">
-        <label>Nom</label>
-        <input
-          v-model="lastName"
-          type="text"
-          name="username"
-          placeholder="Nom"
-          required
-        >
-        <label>Prénom</label>
-        <input
-          v-model="firstName"
-          type="text"
-          name="username"
-          placeholder="Prénom"
-          required
-        >
         <label>Adresse mail</label>
         <input
           v-model="mail"
           type="email"
           name="mail"
           placeholder="Adresse mail"
-          required
-        >
-        <label>Numéro de telephone</label>
-        <input
-          v-model="phone"
-          type="text"
-          name="username"
-          placeholder="Numéro de telephone"
           required
         >
         <label>Mot de passe</label>
@@ -52,12 +28,6 @@
           name="passwordConfirmation"
           placeholder="Confirmer le mots de passe"
           required
-        >
-        <input
-          type="file"
-          name="imag"
-          placeholder="Confirmer le mots de passe"
-          @change="onFileChange"
         >
         <Button anchor="S'inscrire" type="submit" custom="large" />
       </form>
@@ -81,63 +51,37 @@ export default {
 
   data () {
     return {
-      firstName: '',
-      lastName: '',
       mail: '',
       password: '',
-      passwordConfirmation: '',
-      phone: '',
-      profilePict: null,
-      error: null
+      passwordConfirmation: ''
     }
   },
-
   methods: {
-    onFileChange (e) {
-      const files = e.target.files || e.dataTransfer.files
-      if (!files.length) { return }
-      this.profilePict = files[0]
-    },
-    async register () {
+    register () {
       if (this.password !== this.passwordConfirmation) {
-        await this.$store.commit('sendNotification', {
+        this.$store.commit('sendNotification', {
           status: 'error',
           message: 'Les mots de passe que vous avez renseigner ne sont pas identique  !'
         })
       } else {
-        try {
-          const user = {
-            firstName: this.firstName,
-            lastName: this.lastName,
-            mail: this.mail,
-            password: this.password,
-            phone: this.phone
+        this.$fire
+          .auth
+          .createUserWithEmailAndPassword(this.mail, this.password)
+          .then((r) => {
+            console.log(r)
+            this.$store.commit('sendNotification', {
+              status: 'success',
+              message: 'Vous vous etes désormais inscrit a MyCalendApp  !'
+            })
+            this.$router.push('/profile')
           }
-          const formData = new FormData()
-          formData.append('img', this.profilePict)
-          formData.append('user', JSON.stringify(user))
-          await this.$axios.post('user', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
+          )
+          .catch((e) => {
+            this.$store.commit('sendNotification', {
+              status: 'error',
+              message: e.response.data.message
+            })
           })
-          await this.$auth.loginWith('local', {
-            data: {
-              mail: this.mail,
-              password: this.password
-            }
-          })
-          await this.$store.commit('sendNotification', {
-            status: 'success',
-            message: 'Vous vous etes désormais inscrit a MyCalendApp  !'
-          })
-          this.$router.push('/profile')
-        } catch (e) {
-          await this.$store.commit('sendNotification', {
-            status: 'error',
-            message: e.response.data.message
-          })
-        }
       }
     }
   }

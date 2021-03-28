@@ -1,5 +1,5 @@
 export default function ({ store, redirect }) {
-  if (store.state.auth.loggedIn !== true) {
+  if (store.state.user !== '' || store.state.user !== undefined || store.state.user !== null) {
     store.commit('sendNotification', {
       status: 'info',
       message: 'Vous devez etre connecter pour acceder a cette page !'

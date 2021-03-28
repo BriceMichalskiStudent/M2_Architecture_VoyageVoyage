@@ -52,17 +52,15 @@ export default {
   methods: {
     async login () {
       try {
-        await this.$auth.loginWith('local', {
-          data: {
-            mail: this.mail,
-            password: this.password
-          }
-        })
-        this.$store.commit('sendNotification', {
-          status: 'success',
-          message: 'Vous etes désormais connecter !'
-        })
-        this.$router.push('/profile')
+        await this.$fire.auth.signInWithEmailAndPassword(this.mail, this.password)
+          .then((r) => {
+            console.log(r)
+            this.$store.commit('sendNotification', {
+              status: 'success',
+              message: 'Vous etes désormais connecter !'
+            })
+            this.$router.push('/profile')
+          })
       } catch (e) {
         this.$store.commit('sendNotification', {
           status: 'error',
