@@ -14,6 +14,10 @@ using FirebaseAdmin;
 
 using Google.Apis.Auth.OAuth2;
 
+using MicroService.User.Service.Declaration;
+using MicroService.User.Service.Repository;
+using MicroService.User.Service.Service;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -49,6 +53,8 @@ namespace MicroService.Travel.WebApi
                                                                     ValidateLifetime = true
                                                                 };
                     });
+            services.AddScoped<ITravelRepository, TravelRepository>();
+            services.AddScoped<ITravelService, TravelService>();
             services.AddControllers();
         }
 

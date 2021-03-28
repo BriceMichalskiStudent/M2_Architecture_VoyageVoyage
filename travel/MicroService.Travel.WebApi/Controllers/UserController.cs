@@ -14,18 +14,14 @@ namespace MicroService.Travel.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class UserController : ControllerBase
     {
 
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult> Get()
+        [Route("current")]
+        public async Task<ActionResult> GetCurrent()
         {
-            var claim = User;
-
-            var FirebaseClaim = User.Claims.FirstOrDefault(c => c.Type == "firebase");
-
-
             string accessToken = Request.Headers[HeaderNames.Authorization];
 
             var jwtToken = accessToken.Replace("Bearer ", string.Empty);

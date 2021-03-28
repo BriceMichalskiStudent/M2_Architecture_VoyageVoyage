@@ -11,5 +11,21 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MicroService.User.Service\MicroService.User.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MicroService.Core.Mongodb">
+      <HintPath>..\..\core\MicroService.Core.WebApi\MicroService.Core.Mongodb.dll</HintPath>
+    </Reference>
+    <Reference Include="MicroService.Core.Service">
+      <HintPath>..\..\core\MicroService.Core.WebApi\MicroService.Core.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="MicroService.Core.WebApi">
+      <HintPath>..\..\core\MicroService.Core.WebApi\MicroService.Core.WebApi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 
 </Project>
