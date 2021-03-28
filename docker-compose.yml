@@ -22,15 +22,16 @@ services:
 ##########################
 #    BUSINESS SERVICE    #
 ##########################
-  # front:
-  #   networks:
-  #     - exposed
-  #     - internal
-
-  # user:
-  #   networks:
-  #     - exposed
-  #     - internal
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    environment:
+      - backend_url=http://travel.localhost/
+      - API_KEY_Gmap=${API_KEY_GMAP}
+    networks:
+      - exposed
+      - internal
 
   travel:
     build:
@@ -58,6 +59,9 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=6EQUJ5wow
       - MONGO_INITDB_DATABASE=image
       - MONGO_INITDB_HOST=image-bdd
+      - AMAZON_KEY="${AMAZON_KEY}"
+      - AMAZON_SECRET="${AMAZON_SECRET}"
+      - AMAZON_BUCKET="${AMAZON_BUCKET}"
     depends_on:
       - travel-bdd
     networks:
