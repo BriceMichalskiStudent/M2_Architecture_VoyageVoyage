@@ -1,0 +1,13 @@
+http:
+    routers:
+      router-front:
+        entryPoints:
+          - web
+        service: front
+        rule: Host(`travel.localhost`) && Path(`/`)
+
+    services:
+      front:
+        loadBalancer:
+          servers:
+            - url: "http://front:80/"
