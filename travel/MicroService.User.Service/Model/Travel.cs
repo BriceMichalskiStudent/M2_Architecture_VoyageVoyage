@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 using MicroService.Core.Mongodb;
 
-namespace MicroService.User.Service.Model
+namespace MicroService.Travel.Service.Model
 {
     public class Travel : Modelbase
     {

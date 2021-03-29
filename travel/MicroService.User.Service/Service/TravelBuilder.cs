@@ -1,28 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Threading.Tasks;
 
-using MicroService.User.Service.Model;
-
-namespace MicroService.User.Service.Service
+namespace MicroService.Travel.Service.Service
 {
     public class TravelBuilder
     {
-        private readonly Travel _travel;
+        private readonly Model.Travel _travel;
 
-        public TravelBuilder(Travel travel)
+        public TravelBuilder(Model.Travel travel)
         {
             _travel = travel;
         }
 
-        private void GetLikes()
+        private async Task GetLikes()
         {
 
         }
 
-        private void GetImages()
+        private async Task GetImages()
         {
 
+        }
+
+        public async Task<Model.Travel> GetResult()
+        {
+            await GetLikes();
+            await GetImages();
+
+            return _travel;
         }
     }
 }

@@ -1,14 +1,10 @@
-﻿using System.Threading;
+﻿using MicroService.Core.Service;
+using MicroService.Travel.Service.Declaration;
+using MicroService.Travel.Service.Repository;
 
-using MicroService.Core.Mongodb;
-using MicroService.Core.Service;
-using MicroService.User.Service.Declaration;
-using MicroService.User.Service.Model;
-using MicroService.User.Service.Repository;
-
-namespace MicroService.User.Service.Service
+namespace MicroService.Travel.Service.Service
 {
-    public class TravelService : CrudService<Travel>, ITravelService
+    public class TravelService : CrudService<Model.Travel>, ITravelService
     {
         public TravelService(TravelRepository travelRepository): base(travelRepository)
         {

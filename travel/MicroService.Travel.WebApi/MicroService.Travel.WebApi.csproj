@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MicroService.User.Service\MicroService.User.Service.csproj" />
+    <ProjectReference Include="..\MicroService.User.Service\MicroService.Travel.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

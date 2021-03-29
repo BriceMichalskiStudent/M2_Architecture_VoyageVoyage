@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>MicroService.Travel.Service</AssemblyName>
+    <RootNamespace>MicroService.Travel.Service</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

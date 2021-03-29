@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MicroService.Core.Service;
 
-using MicroService.Core.Service;
-using MicroService.User.Service.Model;
-
-namespace MicroService.User.Service.Declaration
+namespace MicroService.Travel.Service.Declaration
 {
     /// <summary>
     /// Déclaration des méthode du service de voyage.
     /// </summary>
-    public interface ITravelService : ICrudService<Travel>
+    public interface ITravelService : ICrudService<Model.Travel>
     {
     }
 }
