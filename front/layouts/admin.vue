@@ -23,7 +23,7 @@ import componentTopBar from '~/components/admin/TopBar'
 import notification from '~/components/Notification'
 
 export default {
-  middleware: ['connected', 'admin'],
+  // middleware: ['connected', 'admin'],
   components: {
     componentSideMenu,
     componentTopBar,

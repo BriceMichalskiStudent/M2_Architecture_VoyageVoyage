@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import listTravel from '~/assets/dataSchema/listTravel.json'
+
 import TravelList from '~/components/travels/TravelList'
 import Triangle from '~/components/svg/Triangle'
 import Sun from '~/components/svg/Sun'
@@ -62,37 +64,11 @@ export default {
     return {
       title: 'Page voyages',
       meta_desc: 'Je suis le magnifique content',
-      travelAll: [
-        {
-          id: 0,
-          name: 'Nowel',
-          description: 'Let\'s go les cado, pour les grand et les mioches',
-          nbLike: 4,
-          images: [
-            {
-              image: 'https://images.unsplash.com/photo-1576346618381-facf2a17af3d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1345&q=80',
-              description: '',
-              legend: ''
-            },
-            {
-              image: 'https://images.unsplash.com/photo-1576346618381-facf2a17af3d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1345&q=80',
-              description: '',
-              legend: ''
-            }
-          ],
-          creator: {
-            '{User}': '{User}'
-          },
-          place: {
-            city: '',
-            country: '',
-            localization: {
-              '2DSPHERE': '2DSPHERE'
-            }
-          }
-        }
-      ]
+      travelAll: []
     }
+  },
+  created () {
+    this.travelAll = listTravel
   },
   head () {
     return {
