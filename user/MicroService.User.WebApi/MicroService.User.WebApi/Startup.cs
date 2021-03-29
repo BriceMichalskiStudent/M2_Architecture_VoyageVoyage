@@ -12,16 +12,10 @@ using System.Threading.Tasks;
 
 using FirebaseAdmin;
 
-using Google.Apis.Auth.OAuth2;
-
-using MicroService.User.Service.Declaration;
-using MicroService.User.Service.Repository;
-using MicroService.User.Service.Service;
-
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
-namespace MicroService.Travel.WebApi
+namespace MicroService.User.WebApi
 {
     public class Startup
     {
@@ -35,10 +29,6 @@ namespace MicroService.Travel.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            FirebaseApp.Create(new AppOptions()
-                                   {
-                                       Credential = GoogleCredential.FromFile("./userwebapi.json"),
-                                   });
             services
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -53,8 +43,6 @@ namespace MicroService.Travel.WebApi
                                                                     ValidateLifetime = true
                                                                 };
                     });
-            services.AddScoped<ITravelRepository, TravelRepository>();
-            services.AddScoped<ITravelService, TravelService>();
             services.AddControllers();
         }
 

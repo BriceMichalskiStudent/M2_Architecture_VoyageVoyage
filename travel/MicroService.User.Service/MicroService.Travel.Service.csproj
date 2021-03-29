@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>MicroService.Travel.Service</AssemblyName>
+    <RootNamespace>MicroService.Travel.Service</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="MicroService.Core.Mongodb">
+      <HintPath>..\..\core\MicroService.Core.Service\MicroService.Core.Mongodb.dll</HintPath>
+    </Reference>
+    <Reference Include="MicroService.Core.Service">
+      <HintPath>..\..\core\MicroService.Core.Service\MicroService.Core.Service.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

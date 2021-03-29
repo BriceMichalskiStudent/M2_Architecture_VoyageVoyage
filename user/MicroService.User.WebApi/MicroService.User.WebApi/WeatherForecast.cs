@@ -1,6 +1,6 @@
 using System;
 
-namespace MicroService.Image.WebApi
+namespace MicroService.User.WebApi
 {
     public class WeatherForecast
     {
